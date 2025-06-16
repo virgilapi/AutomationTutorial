@@ -169,15 +169,5 @@ public class PracticeFormTest {
         Assert.assertTrue(tableValueList.get(9).getText().contains(cityValue),"City name is not displayed correctly");
 
         driver.quit();
-
-
-
-
-
-
-
-
-
-
     }
 }
