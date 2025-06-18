@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.List;
 
 public class WebTablesTest {
@@ -24,7 +25,10 @@ public class WebTablesTest {
 
      driver.manage().window().maximize();
 
-     JavascriptExecutor js = (JavascriptExecutor) driver;
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
      js.executeScript("window.scrollBy(0,400)");
 
 
