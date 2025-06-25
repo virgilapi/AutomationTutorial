@@ -1,5 +1,6 @@
 package tests;
 
+import helpermethods.PageHelper;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -7,27 +8,23 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sharedData.SharedData;
 
 import java.io.File;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
-public class PracticeFormTest {
-    public WebDriver driver;
+public class PracticeFormTest extends SharedData {
+
 
     @Test
     public void testMethod(){
 
-        driver=new ChromeDriver();
-        driver.get("https://demoqa.com/");
-        driver.manage().window().maximize();
-        //wait implicit
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));// adica wait ul sta doar 10 secunde
-        //iar daca computeaza sub 10 sec nu mai asteapta 10
-        //h5[text()='Forms']
-        JavascriptExecutor js1 = (JavascriptExecutor) driver;
-        js1.executeScript("window.scrollBy(0,400)");
+
+        PageHelper pageHelper = new PageHelper(driver);
+
+        pageHelper.scrollPage(0,400);
 
         WebElement formMenuElement = driver.findElement(By.xpath("//h5[text()='Forms']"));
         formMenuElement.click();

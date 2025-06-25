@@ -7,25 +7,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sharedData.SharedData;
 
 import java.time.Duration;
 import java.util.List;
 
-public class WebTablesTest {
-    public WebDriver driver;
+public class WebTablesTest extends SharedData {
 
     @Test
     public void testMetod(){
-       //deschidem o instanta de chrome(sau altele)
-       driver=new ChromeDriver();
-      //accesam o pagina specifica
-
-       driver.get("https://demoqa.com/");
-     //facem browser ul sa fie in maximize, in fullscreen consumam prea multi rami
-
-     driver.manage().window().maximize();
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 
         JavascriptExecutor js = (JavascriptExecutor) driver;

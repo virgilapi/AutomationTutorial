@@ -2,27 +2,17 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
+import sharedData.SharedData;
 
-import java.time.Duration;
+public class FrameTest extends SharedData {
 
-public class FrameTest {
-
-    public WebDriver driver;
 
     @Test
     public void WindowTestMethod() {
-        driver = new ChromeDriver();
 
-        driver.get("https://demoqa.com/");
 
-        driver.manage().window().maximize();
-
-        //wait implicit
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         JavascriptExecutor executor = (JavascriptExecutor) driver;
 
@@ -44,7 +34,5 @@ public class FrameTest {
         System.out.println(secondElement.getText());
 
         driver.switchTo().parentFrame();
-
-        driver.quit();
     }
 }

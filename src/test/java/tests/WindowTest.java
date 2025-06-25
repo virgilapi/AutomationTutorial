@@ -6,23 +6,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
+import sharedData.SharedData;
 
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WindowTest {
-    public WebDriver driver;
+public class WindowTest extends SharedData {
+
 
     @Test
     public void WindowTestMethod(){
-        driver=new ChromeDriver();
-
-        driver.get("https://demoqa.com/");
-
-        driver.manage().window().maximize();
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 
         JavascriptExecutor executor = (JavascriptExecutor) driver;
