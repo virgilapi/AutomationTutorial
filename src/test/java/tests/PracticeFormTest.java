@@ -1,5 +1,6 @@
 package tests;
 
+import helpermethods.ElementHelper;
 import helpermethods.PageHelper;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,22 +24,23 @@ public class PracticeFormTest extends SharedData {
 
 
         PageHelper pageHelper = new PageHelper(driver);
+        ElementHelper elementHelper = new ElementHelper(driver);
 
         pageHelper.scrollPage(0,400);
 
         WebElement formMenuElement = driver.findElement(By.xpath("//h5[text()='Forms']"));
-        formMenuElement.click();
+        elementHelper.clickElement(formMenuElement);
 
         WebElement formClickElement = driver.findElement(By.xpath("//span[text()='Practice Form']"));
-        formClickElement.click();
+        elementHelper.clickElement(formClickElement);
 
         WebElement firstNameElement=driver.findElement(By.cssSelector("input[placeholder='First Name']"));
         String firstnameValue="Abdul";
-        firstNameElement.sendKeys(firstnameValue);
+        elementHelper.fillElement(firstNameElement,"Abdul");
 
         WebElement lastNameElement=driver.findElement(By.cssSelector("input[placeholder='Last Name']"));
         String lastnameValue="Nepal";
-        lastNameElement.sendKeys(lastnameValue);
+        elementHelper.fillElement(lastNameElement,"Nepal");
 
         WebElement emailElment=driver.findElement(By.cssSelector("input[placeholder='name@example.com']"));
         String emailValue="ara@email.com";
@@ -51,8 +53,8 @@ public class PracticeFormTest extends SharedData {
         WebElement subjectElement=driver.findElement(By.id("subjectsInput"));
         List<String> subjectValue= Arrays.asList("Accounting","Arts","Maths");
         for (int index = 0;index<subjectValue.size();index++){
-            subjectElement.sendKeys(subjectValue.get(index));
-            subjectElement.sendKeys(Keys.ENTER);
+            elementHelper.fillElement(subjectElement,subjectValue.get(index));
+            elementHelper.pressElement(subjectElement,Keys.ENTER);
         }
         //subjectElement.sendKeys(Keys.ENTER);-METODA DE ENTER, KEYS-SPECIFIC SELENIUM
 
@@ -60,54 +62,57 @@ public class PracticeFormTest extends SharedData {
         List<WebElement> genderElementList= driver.findElements(By.cssSelector("div[id='genterWrapper'] label[class='custom-control-label']"));
         switch (gendervalue){
             case "Male":
-                genderElementList.get(0).click();
+                elementHelper.clickElement(genderElementList.get(0));
                 break;
             case "Female":
-                genderElementList.get(1).click();
+                elementHelper.clickElement( genderElementList.get(1));
                 break;
             case "Other":
-                genderElementList.get(2).click();
+               elementHelper.clickElement( genderElementList.get(2));
                 break;
         }
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,400)");
+        pageHelper.scrollPage(0,400);
+
         List<WebElement> hobbiesElementList = driver.findElements(By.cssSelector("div[id='hobbiesWrapper']>div>div>label[class='custom-control-label']"));
         List<String> hobbieValues= Arrays.asList("Sports","Reading");
         for (int index=0;index< hobbiesElementList.size();index++){
             if (hobbieValues.contains(hobbiesElementList.get(index).getText())){
-                hobbiesElementList.get(index).click();
+                elementHelper.clickElement(hobbiesElementList.get(index));
             }
         }
 
         WebElement uploadElement= driver.findElement(By.id("uploadPicture"));
         String uploadValue="src/test/resources/Screenshot 2024-11-13 120523.png";
         File file = new File(uploadValue);
-        uploadElement.sendKeys(file.getAbsolutePath());
+        elementHelper.fillElement(uploadElement,file.getAbsolutePath());
+//        uploadElement.sendKeys(file.getAbsolutePath());
 
         WebElement adressELement= driver.findElement(By.id("currentAddress"));
         String curentadressValue="Milcoiu";
         adressELement.sendKeys(curentadressValue);
 
-        JavascriptExecutor executor = (JavascriptExecutor) driver;
+
 
         WebElement stateElement = driver.findElement(By.id("state"));
-        executor.executeScript("arguments[0].click();", stateElement);
+        elementHelper.ultraJSElement(stateElement);
 
         WebElement stateInputElement = driver.findElement(By.id("react-select-3-input"));
         String stateValue = "Uttar Pradesh";
-        stateInputElement.sendKeys(stateValue);
-        stateInputElement.sendKeys(Keys.ENTER);
+        elementHelper.fillElement(stateInputElement,"Uttar Pradesh");
+        elementHelper.pressElement(stateInputElement,Keys.ENTER);
+//        stateInputElement.sendKeys(Keys.ENTER);
 
-        WebElement cityElement = driver.findElement(By.id("react-select-4-input"));
-        executor.executeScript("arguments[0].click();", cityElement);
+        WebElement cityElement = driver.findElement(By.id("city"));
+        elementHelper.ultraJSElement(cityElement);
+
 
         WebElement cityInputElement = driver.findElement(By.id("react-select-4-input"));
-        String cityValue = "Lucknow";
-        cityInputElement.sendKeys(cityValue);
-        cityInputElement.sendKeys(Keys.ENTER);
+        String cityValue = "Agra";
+        elementHelper.fillElement(cityInputElement,"Agra");
+        elementHelper.pressElement(cityInputElement,Keys.ENTER);
 
         WebElement submitElement = driver.findElement(By.id("submit"));
-        executor.executeScript("arguments[0].click();", submitElement);
+        elementHelper.ultraJSElement(submitElement);
         //mai jos facem validari
         //wait explicit
 
@@ -165,6 +170,5 @@ public class PracticeFormTest extends SharedData {
         Assert.assertTrue(tableValueList.get(9).getText().contains(stateValue),"The state second name is not displayed correctly");
         Assert.assertTrue(tableValueList.get(9).getText().contains(cityValue),"City name is not displayed correctly");
 
-        driver.quit();
     }
 }

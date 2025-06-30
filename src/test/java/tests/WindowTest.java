@@ -1,5 +1,7 @@
 package tests;
 
+import helpermethods.ElementHelper;
+import helpermethods.TabHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -16,40 +18,27 @@ public class WindowTest extends SharedData {
 
 
     @Test
-    public void WindowTestMethod(){
+    public void windowTestMethod(){
 
+        ElementHelper elementHelper = new ElementHelper(driver);
+        TabHelper tabHelper = new TabHelper(driver);
 
-        JavascriptExecutor executor = (JavascriptExecutor) driver;
 
         WebElement alertsElement = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
-        executor.executeScript("arguments[0].click();", alertsElement);
+        elementHelper.ultraJSElement(alertsElement);
 
         WebElement windowElement = driver.findElement(By.xpath("//span[text()='Browser Windows']"));
-        executor.executeScript("arguments[0].click();", windowElement);
+        elementHelper.ultraJSElement(windowElement);
 
         WebElement newTabElement = driver.findElement(By.id("tabButton"));
-        newTabElement.click();
+        elementHelper.clickElement(newTabElement);
 
-        List<String> tabsList = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabsList.get(1));
-        System.out.println(driver.getCurrentUrl());
-
-        driver.close();
-        driver.switchTo().window(tabsList.get(0));
-        System.out.println(driver.getCurrentUrl());
+        tabHelper.swithTab();
 
         WebElement newWindow = driver.findElement(By.id("windowButton"));
         newWindow.click();
 
-        List<String> windowList = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(windowList.get(1));
-        System.out.println(driver.getCurrentUrl());
-
-        driver.close();
-        driver.switchTo().window(windowList.get(0));
-        System.out.println(driver.getCurrentUrl());
-
-        driver.quit();
+        tabHelper.swithTab();
 
 //        WebElement newWindowMessageElement = driver.findElement(By.id("messageWindowButton"));
 //        newWindowMessageElement.click();

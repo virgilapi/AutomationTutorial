@@ -11,7 +11,7 @@ public class AlertsTest extends SharedData {
 
 
     @Test
-    public void WindowTestMethod() {
+    public void alertsTestMethod() {
 
         ElementHelper elementHelper = new ElementHelper(driver);
         AlertHelper alertHelper = new AlertHelper(driver);
@@ -20,12 +20,9 @@ public class AlertsTest extends SharedData {
         WebElement alertsFrameWindowsElement = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
         elementHelper.ultraJSElement(alertsFrameWindowsElement);
 
-        WebElement alertsElement = driver.findElement(By.xpath("//span[text()='Alerts']"));
+        WebElement alertsElement = elementHelper.getElementsXpath("//span[text()='Alerts']");
+//        WebElement alertsElement = driver.findElement(By.xpath("//span[text()='Alerts']"));
         elementHelper.ultraJSElement(alertsElement);
-
-        WebElement alertOkButtonElement = driver.findElement(By.id("alertButton"));
-        elementHelper.clickElement(alertOkButtonElement);
-        alertHelper.acceptAlert();
 
         WebElement alertWaitButtonElement = driver.findElement(By.id("timerAlertButton"));
         elementHelper.clickElement(alertWaitButtonElement);

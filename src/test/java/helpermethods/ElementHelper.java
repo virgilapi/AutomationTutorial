@@ -1,9 +1,6 @@
 package helpermethods;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 public class ElementHelper {
 
@@ -21,4 +18,26 @@ public class ElementHelper {
     public void clickElement(WebElement element){
         element.click();
     }
+
+   public WebElement getElementsXpath(String xpath){
+       return driver.findElement(By.xpath(xpath));
+   }
+
+    public void extractText(WebElement textelement){
+        System.out.println(textelement.getText());
+    }
+
+    public void fillElement(WebElement element,String value){
+        element.sendKeys(value);
+    }
+
+    public void pressElement(WebElement element,Keys value){
+        element.sendKeys(value);
+
+    }
+
+    public void clearElement(WebElement element){
+        element.clear();
+    }
 }
+
