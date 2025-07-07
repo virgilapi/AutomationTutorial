@@ -17,122 +17,116 @@ import java.util.List;
 public class WebTablesTest extends SharedData {
 
     @Test
-    public void testMetod(){
+    public void testMetod() {
 
         ElementHelper elementHelper = new ElementHelper(driver);
         PageHelper pageHelper = new PageHelper(driver);
 
-       pageHelper.scrollPage(0,400);
+        pageHelper.scrollPage(0, 400);
 
 
-     WebElement elementElmenet = driver.findElement(By.xpath("//h5[text()='Elements']"));
-      elementHelper.clickElement(elementElmenet);
+        WebElement elementElmenet = driver.findElement(By.xpath("//h5[text()='Elements']"));
+        elementHelper.clickElement(elementElmenet);
 
-     pageHelper.scrollPage(0,400);
+        pageHelper.scrollPage(0, 400);
 
-     WebElement webTables = driver.findElement(By.xpath("//span[text()='Web Tables']"));
-     elementHelper.clickElement(webTables);
+        WebElement webTables = driver.findElement(By.xpath("//span[text()='Web Tables']"));
+        elementHelper.clickElement(webTables);
 
 
-     List<WebElement> tableList = driver.findElements(By.xpath("//div[@class='rt-tr -even' or @class='rt-tr -odd']"));
-        int tableSize=3;
-        Assert.assertEquals(tableList.size(),tableSize);
+        List<WebElement> tableList = driver.findElements(By.xpath("//div[@class='rt-tr -even' or @class='rt-tr -odd']"));
+        int tableSize = 3;
+        elementHelper.validateListsize(tableList, tableSize);
 
         //identificam un element
-        WebElement addElement=driver.findElement(By.id("addNewRecordButton"));
-       elementHelper.clickElement(addElement);
+        WebElement addElement = driver.findElement(By.id("addNewRecordButton"));
+        elementHelper.clickElement(addElement);
 
-        WebElement firstnameElement=driver.findElement(By.id("firstName"));
-        String firstnameValue="Abdul";
-        elementHelper.fillElement(firstnameElement,"Abdul");
+        WebElement firstnameElement = driver.findElement(By.id("firstName"));
+        String firstnameValue = "Abdul";
+        elementHelper.fillElement(firstnameElement, firstnameValue);
 
-        WebElement lastnameElement=driver.findElement(By.id("lastName"));
-        String lastnameValue="Naptul";
-        elementHelper.fillElement(lastnameElement,"Naptul");
+        WebElement lastnameElement = driver.findElement(By.id("lastName"));
+        String lastnameValue = "Naptul";
+        elementHelper.fillElement(lastnameElement, lastnameValue);
 
-        WebElement emailELement=driver.findElement(By.id("userEmail"));
-        String emailValue="baga@gmail.com";
-        elementHelper.fillElement(emailELement,"baga@gmail.com");
+        WebElement emailELement = driver.findElement(By.id("userEmail"));
+        String emailValue = "baga@gmail.com";
+        elementHelper.fillElement(emailELement, emailValue);
 
-        WebElement ageElement=driver.findElement(By.id("age"));
-        String ageValue="27";
-        elementHelper.fillElement(ageElement,"27");
+        WebElement ageElement = driver.findElement(By.id("age"));
+        String ageValue = "27";
+        elementHelper.fillElement(ageElement, ageValue);
 
-        WebElement salaryElement=driver.findElement(By.id("salary"));
-        String salaryValue="2500";
-        elementHelper.fillElement(salaryElement,"2500");
+        WebElement salaryElement = driver.findElement(By.id("salary"));
+        String salaryValue = "2500";
+        elementHelper.fillElement(salaryElement, salaryValue);
 
-        WebElement departmentElement=driver.findElement(By.id("department"));
-        String departmentValue="frizer";
-        elementHelper.fillElement(departmentElement,"frizer");
+        WebElement departmentElement = driver.findElement(By.id("department"));
+        String departmentValue = "frizer";
+        elementHelper.fillElement(departmentElement, departmentValue);
 
-        WebElement submitElement=driver.findElement(By.id("submit"));
+        WebElement submitElement = driver.findElement(By.id("submit"));
         elementHelper.ultraJSElement(submitElement);
 
-         tableList = driver.findElements(By.xpath("//div[@class='rt-tr -even' or @class='rt-tr -odd']"));
-         Assert.assertEquals(tableList.size(),tableSize+1);
-         Assert.assertTrue(tableList.get(tableSize).getText().contains(firstnameValue));
-         Assert.assertTrue(tableList.get(tableSize).getText().contains(lastnameValue));
-         Assert.assertTrue(tableList.get(tableSize).getText().contains(emailValue));
-         Assert.assertTrue(tableList.get(tableSize).getText().contains(ageValue));
-         Assert.assertTrue(tableList.get(tableSize).getText().contains(salaryValue));
-         Assert.assertTrue(tableList.get(tableSize).getText().contains(departmentValue));
+        tableList = driver.findElements(By.xpath("//div[@class='rt-tr -even' or @class='rt-tr -odd']"));
+        elementHelper.validateListsize(tableList, tableSize + 1);
+        elementHelper.validateElementCotainsText(tableList.get(tableSize), firstnameValue);
+        elementHelper.validateElementCotainsText(tableList.get(tableSize), lastnameValue);
+        elementHelper.validateElementCotainsText(tableList.get(tableSize), emailValue);
+        elementHelper.validateElementCotainsText(tableList.get(tableSize), ageValue);
+        elementHelper.validateElementCotainsText(tableList.get(tableSize), salaryValue);
+        elementHelper.validateElementCotainsText(tableList.get(tableSize), departmentValue);
 
-     //edit functionality
+        //edit functionality
 
-        WebElement editElement=driver.findElement(By.id("edit-record-4"));
-        elementHelper.clickElement(editElement);
+        WebElement editElement = driver.findElement(By.id("edit-record-4"));
+        elementHelper.ultraJSElement(editElement);
 
-        WebElement editfirstnameElement=driver.findElement(By.id("firstName"));
-        String editfirstnameValue="Nepal";
-        editfirstnameElement.clear();
+        WebElement editfirstnameElement = driver.findElement(By.id("firstName"));
+        String editfirstnameValue = "Nepal";
         //editfirstnameElement.clear();-sterge un text deja existent
-        editfirstnameElement.sendKeys(editfirstnameValue);
+        elementHelper.clearFillElement(editfirstnameElement,editfirstnameValue);
 
-        WebElement editlastElement=driver.findElement(By.id("lastName"));
-        String editlastnameValue="Paki";
-        elementHelper.clearElement(editlastElement);
-        elementHelper.fillElement(editlastElement,"Paki");
+        WebElement editlastElement = driver.findElement(By.id("lastName"));
+        String editlastnameValue = "Paki";
+        elementHelper.clearFillElement(editlastElement, editlastnameValue);
 
-        WebElement editmailElement=driver.findElement(By.id("userEmail"));
-        String editemailValue="alablala@gmail.com";
-        elementHelper.clearElement(editmailElement);
-        elementHelper.fillElement(editmailElement,"alablala@gmail.com");
+        WebElement editmailElement = driver.findElement(By.id("userEmail"));
+        String editemailValue = "alablala@gmail.com";
+        elementHelper.clearFillElement(editmailElement, editemailValue);
 
-        WebElement editageElement=driver.findElement(By.id("age"));
-        String editageValue="28";
-        elementHelper.clearElement(editageElement);
-        elementHelper.fillElement(editageElement,"28");
+        WebElement editageElement = driver.findElement(By.id("age"));
+        String editageValue = "28";
+        elementHelper.clearFillElement(editageElement, editageValue);
 
-        WebElement editsalariElement=driver.findElement(By.id("salary"));
-        String editsalariValue="1000";
-        elementHelper.clearElement(editsalariElement);
-        elementHelper.fillElement(editsalariElement,"1000");
+        WebElement editsalariElement = driver.findElement(By.id("salary"));
+        String editsalariValue = "1000";
+        elementHelper.clearFillElement(editsalariElement, editsalariValue);
 
-        WebElement editdepElement=driver.findElement(By.id("department"));
-        String editdepValue="Gunoier";
-        elementHelper.clearElement(editdepElement);
-        elementHelper.fillElement(editdepElement,"Gunoier");
+        WebElement editdepElement = driver.findElement(By.id("department"));
+        String editdepValue = "Gunoier";
+        elementHelper.clearFillElement(editdepElement, editdepValue);
 
 
         WebElement editLine = driver.findElement(By.id("submit"));
         elementHelper.ultraJSElement(editLine);
 
         tableList = driver.findElements(By.xpath("//div[@class='rt-tr -even' or @class='rt-tr -odd']"));
-        Assert.assertEquals(tableList.size(),tableSize+1);
-        Assert.assertTrue(tableList.get(tableSize).getText().contains(editfirstnameValue));
-        Assert.assertTrue(tableList.get(tableSize).getText().contains(editlastnameValue));
-        Assert.assertTrue(tableList.get(tableSize).getText().contains(editemailValue));
-        Assert.assertTrue(tableList.get(tableSize).getText().contains(editageValue));
-        Assert.assertTrue(tableList.get(tableSize).getText().contains(editsalariValue));
-        Assert.assertTrue(tableList.get(tableSize).getText().contains(editdepValue));
+        elementHelper.validateListsize(tableList, tableSize + 1);
+        elementHelper.validateElementCotainsText(tableList.get(tableSize), editfirstnameValue);
+        elementHelper.validateElementCotainsText(tableList.get(tableSize), editlastnameValue);
+        elementHelper.validateElementCotainsText(tableList.get(tableSize), editemailValue);
+        elementHelper.validateElementCotainsText(tableList.get(tableSize), editageValue);
+        elementHelper.validateElementCotainsText(tableList.get(tableSize), editsalariValue);
+        elementHelper.validateElementCotainsText(tableList.get(tableSize), editdepValue);
 
-     //delete element
-        WebElement deleteElement=driver.findElement(By.id("delete-record-4"));
+        //delete element
+        WebElement deleteElement = driver.findElement(By.id("delete-record-4"));
         elementHelper.clickElement(deleteElement);
 
         tableList = driver.findElements(By.xpath("//div[@class='rt-tr -even' or @class='rt-tr -odd']"));
-        Assert.assertEquals(tableList.size(),tableSize);
+        elementHelper.validateListsize(tableList, tableSize);
 
 
     }

@@ -33,12 +33,21 @@ public class WindowTest extends SharedData {
         WebElement newTabElement = driver.findElement(By.id("tabButton"));
         elementHelper.clickElement(newTabElement);
 
-        tabHelper.swithTab();
+        tabHelper.swithTab(1);
+        System.out.println(driver.getCurrentUrl());
+
+        tabHelper.closeCurentTab();
+
+        tabHelper.swithTab(0);
 
         WebElement newWindow = driver.findElement(By.id("windowButton"));
         newWindow.click();
 
-        tabHelper.swithTab();
+        tabHelper.swithTab(1);
+        System.out.println(driver.getCurrentUrl());
+
+
+        tabHelper.closeCurentTab();
 
 //        WebElement newWindowMessageElement = driver.findElement(By.id("messageWindowButton"));
 //        newWindowMessageElement.click();

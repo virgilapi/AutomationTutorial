@@ -14,14 +14,15 @@ public class TabHelper {
         this.driver = driver;
     }
 
-    public void swithTab(){
+    public void swithTab(int pozition){
 
         List<String> tabsList = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabsList.get(1));
-        System.out.println(driver.getCurrentUrl());
+        driver.switchTo().window(tabsList.get(pozition));
+
+    }
+
+    public void closeCurentTab(){
         driver.close();
-        driver.switchTo().window(tabsList.get(0));
-        System.out.println(driver.getCurrentUrl());
 
     }
 
