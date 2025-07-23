@@ -13,10 +13,10 @@ public class WebTablesTest extends SharedData {
 
 
 
-        IndexPage indexPage = new IndexPage(driver);
+        IndexPage indexPage = new IndexPage(getDriver());
         indexPage.interactWithElementsMenu();
 
-        ElementsPage elementsPage = new ElementsPage(driver);
+        ElementsPage elementsPage = new ElementsPage(getDriver());
         elementsPage.interactWithWebTableSubMenu();
 
 
@@ -35,7 +35,7 @@ public class WebTablesTest extends SharedData {
         String editdepartmentValue = "Gunoier";
 
 
-        WebTablesPage webTablesPage = new WebTablesPage(driver);
+        WebTablesPage webTablesPage = new WebTablesPage(getDriver());
         webTablesPage.addNewEntry(tableSize,firstnameValue,lastnameValue,emailValue,ageValue,salaryValue,departmentValue);
         webTablesPage.editNewEntry(tableSize,editfirstnameValue,editlastnameValue,editemailValue,editageValue,editsalaryValue,editdepartmentValue);
         webTablesPage.deleteNewEntry(3);

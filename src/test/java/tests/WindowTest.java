@@ -12,13 +12,13 @@ public class WindowTest extends SharedData {
     @Test
     public void windowTestMethod(){
 
-        IndexPage indexPage = new IndexPage(driver);
+        IndexPage indexPage = new IndexPage(getDriver());
         indexPage.interactOnAlertsFrameWindowMenu();
 
-        AlertFrameWindowPage alertFrameWindowPage = new AlertFrameWindowPage(driver);
+        AlertFrameWindowPage alertFrameWindowPage = new AlertFrameWindowPage(getDriver());
         alertFrameWindowPage.interactWithWindowSubMenu();
 
-        WindowPage windowPage = new WindowPage(driver);
+        WindowPage windowPage = new WindowPage(getDriver());
         windowPage.interactWithTab();
         windowPage.interactWithWindow();
     }

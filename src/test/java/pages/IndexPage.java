@@ -22,11 +22,11 @@ public class IndexPage {
     }
 
     @FindBy(xpath = "//h5[text()='Alerts, Frame & Windows']")
-    public WebElement alertsFrameWindowsElement;
+    private WebElement alertsFrameWindowsElement;
     @FindBy(xpath = "//h5[text()='Elements']")
-    public WebElement  elementElmenet;
+    private WebElement  elementElmenet;
     @FindBy(xpath = "//h5[text()='Forms']")
-    public WebElement formMenuElement;
+    private WebElement formMenuElement;
 
     public void interactOnAlertsFrameWindowMenu(){
         elementHelper.ultraJSElement(alertsFrameWindowsElement);

@@ -21,9 +21,9 @@ public class WindowPage {
     }
 
     @FindBy(id = "tabButton")
-    public WebElement newTabElement;
+    private WebElement newTabElement;
     @FindBy(id = "windowButton" )
-    public WebElement newWindow;
+    private WebElement newWindow;
 
     public void interactWithTab(){
         elementHelper.ultraJSElement(newTabElement);

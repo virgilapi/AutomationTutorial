@@ -21,7 +21,7 @@ public class ElementsPage {
     }
 
     @FindBy(xpath = "//span[text()='Web Tables']")
-    public WebElement webTables;
+    private WebElement webTables;
 
     public void interactWithWebTableSubMenu(){
         pageHelper.scrollPage(0, 400);

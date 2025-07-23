@@ -9,7 +9,7 @@ import java.time.Duration;
 
 public class SharedData {
 
-    public WebDriver driver;
+    private WebDriver driver;
 
     @BeforeMethod
     public void prepareEnv(){
@@ -23,6 +23,10 @@ public class SharedData {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         //iar daca computeaza sub 10 sec nu mai asteapta 10
         //h5[text()='Forms']
+    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 
     @AfterMethod

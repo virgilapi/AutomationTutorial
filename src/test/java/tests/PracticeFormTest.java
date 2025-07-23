@@ -27,13 +27,13 @@ public class PracticeFormTest extends SharedData {
         String stateValue = "Uttar Pradesh";
         String cityValue = "Agra";
 
-        IndexPage indexPage = new IndexPage(driver);
+        IndexPage indexPage = new IndexPage(getDriver());
         indexPage.interactWithFormsMenu();
 
-        FormsPage formsPage = new FormsPage( driver);
+        FormsPage formsPage = new FormsPage(getDriver());
         formsPage.interactWithPracticeFormSubMenu();
 
-        PracticeFormPage practiceFormPage = new PracticeFormPage(driver);
+        PracticeFormPage practiceFormPage = new PracticeFormPage(getDriver());
         practiceFormPage.fillEntireForm(firstNameValue,lastNameValue,emailValue,mobileValue,subjectsValue,
                 genderValue,hobbiesValues, uploadValue, adressValue, stateValue, cityValue);
 

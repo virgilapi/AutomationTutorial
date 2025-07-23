@@ -22,11 +22,11 @@ public class AlertFrameWindowPage {
     }
 
     @FindBy(xpath = "//span[text()='Alerts']")
-    public WebElement alertsFrameWindowsElement;
+    private WebElement alertsFrameWindowsElement;
     @FindBy(xpath = "//span[text()='Frames']")
-    public WebElement framesElement;
+    private WebElement framesElement;
     @FindBy(xpath = "//span[text()='Browser Windows']")
-    public WebElement windowElement;
+    private WebElement windowElement;
 
 
     public void interactWithAlertsSubMenu(){

@@ -84,6 +84,7 @@ public class PracticeFormPage {
         elementHelper.fillElement(lastNameElement, lastNameValue);
         elementHelper.fillElement(emailElement, emailValue);
         elementHelper.fillElement(mobileElement, mobileValue);
+
         for (int index = 0; index < subjectsValue.size(); index++) {
             elementHelper.fillPressElement(subjectsElement, subjectsValue.get(index), Keys.ENTER);
         }
@@ -98,12 +99,14 @@ public class PracticeFormPage {
                 elementHelper.clickElement(genderElementList.get(2));
                 break;
         }
+
         pageHelper.scrollPage(0, 400);
         for (int index = 0; index < hobbiesElementList.size(); index++) {
             if (hobbiesValues.contains(hobbiesElementList.get(index).getText())) {
                 elementHelper.clickElement(hobbiesElementList.get(index));
             }
         }
+
         File file = new File(uploadValue);
         elementHelper.fillElement(uploadElement, file.getAbsolutePath());
         elementHelper.fillElement(adressElement, adressValue);
