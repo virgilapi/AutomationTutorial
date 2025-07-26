@@ -1,24 +1,14 @@
 package pages;
 
-import helpermethods.ElementHelper;
-import helpermethods.PageHelper;
+import loggerUtility.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class AlertFrameWindowPage {
-    public WebDriver driver;
-    public ElementHelper elementHelper;
-    public PageHelper pageHelper;
+public class AlertFrameWindowPage extends BasePage {
 
-    public AlertFrameWindowPage (WebDriver driver){
-        this.driver = driver;
-        elementHelper = new ElementHelper(this.driver);
-        pageHelper = new PageHelper(this.driver);
-        PageFactory.initElements(driver,this);
-
-
+    public AlertFrameWindowPage(WebDriver driver) {
+        super(driver);
     }
 
     @FindBy(xpath = "//span[text()='Alerts']")
@@ -32,6 +22,7 @@ public class AlertFrameWindowPage {
     public void interactWithAlertsSubMenu(){
         elementHelper.waitVisibleElement(alertsFrameWindowsElement);
         elementHelper.ultraJSElement(alertsFrameWindowsElement);
+        LoggerUtility.infoLog("The user clicks on Alerts sub menu");
 
     }
 

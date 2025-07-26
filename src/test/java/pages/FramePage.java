@@ -1,30 +1,22 @@
 package pages;
 
-import helpermethods.ElementHelper;
-import helpermethods.FrameHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class FramePage {
+public class FramePage extends BasePage{
 
-    public WebDriver driver;
-    public ElementHelper elementHelper;
-    public FrameHelper frameHelper;
 
-    public FramePage(WebDriver driver){
-        this.driver = driver;
-        elementHelper = new ElementHelper(driver);
-        frameHelper = new FrameHelper(driver);
-        PageFactory.initElements(driver,this);
-    }
 
 
     @FindBy(id = "sampleHeading")
     private WebElement firstBlockElement;
     @FindBy(id = "sampleHeading")
     private WebElement secondBlockElement;
+
+    public FramePage(WebDriver driver) {
+        super(driver);
+    }
 
 
     public void dealWithBigFrame(){

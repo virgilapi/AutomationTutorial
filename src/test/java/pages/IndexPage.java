@@ -2,6 +2,7 @@ package pages;
 
 import helpermethods.ElementHelper;
 import helpermethods.PageHelper;
+import loggerUtility.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,6 +31,7 @@ public class IndexPage {
 
     public void interactOnAlertsFrameWindowMenu(){
         elementHelper.ultraJSElement(alertsFrameWindowsElement);
+        LoggerUtility.infoLog("The user clicks on the Alert Window Frame Menu");
     }
 
     public void interactWithElementsMenu(){

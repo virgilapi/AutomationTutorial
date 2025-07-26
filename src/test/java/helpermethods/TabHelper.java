@@ -1,14 +1,13 @@
 package helpermethods;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TabHelper {
 
-    public WebDriver driver;
+    private WebDriver driver;
 
     public TabHelper(WebDriver driver) {
         this.driver = driver;

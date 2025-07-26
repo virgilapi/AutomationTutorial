@@ -1,27 +1,14 @@
 package pages;
 
-import helpermethods.ElementHelper;
-import helpermethods.PageHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterMethod;
 
 import java.util.List;
 
-public class WebTablesPage {
+public class WebTablesPage extends BasePage {
 
-    public WebDriver driver;
-    public ElementHelper elementHelper;
-    public PageHelper pageHelper;
 
-    public WebTablesPage(WebDriver driver){
-        this.driver = driver;
-        elementHelper = new ElementHelper(driver);
-        pageHelper = new PageHelper(driver);
-        PageFactory.initElements(driver, this);
-    }
 
     @FindBy(xpath = "//div[@class='rt-tr -even' or @class='rt-tr -odd']")
     private List<WebElement> tableList;
@@ -58,7 +45,11 @@ public class WebTablesPage {
     @FindBy(id = "delete-record-4")
     private WebElement deleteElement;
 
-   public void addNewEntry(int tableSize, String firstnameValue,String lastnameValue,
+    public WebTablesPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public void addNewEntry(int tableSize, String firstnameValue,String lastnameValue,
                            String emailValue,String ageValue,String salaryValue,String departmentValue){
         elementHelper.validateListsize(tableList, tableSize);
 

@@ -1,24 +1,14 @@
 package pages;
 
-import helpermethods.AlertHelper;
-import helpermethods.ElementHelper;
-import org.openqa.selenium.By;
+import loggerUtility.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class AlertPage {
-    public WebDriver driver;
-    public ElementHelper elementHelper;
-    public AlertHelper alertHelper;
+public class AlertPage extends BasePage{
 
-    public AlertPage(WebDriver driver){
-        this.driver = driver;
-        elementHelper = new ElementHelper(driver);
-        alertHelper = new AlertHelper(driver);
-        PageFactory.initElements(driver,this);
-
+    public AlertPage(WebDriver driver) {
+        super(driver);
     }
 
     @FindBy(id = "alertButton")
@@ -30,24 +20,34 @@ public class AlertPage {
     @FindBy(id = "promtButton")
     private WebElement alertPromptElement;
 
+
+
     public void alertOK(){
         elementHelper.clickElement(alertsElement);
+        LoggerUtility.infoLog("The user clicks on Alerts Element");
         alertHelper.acceptAlert();
+        LoggerUtility.infoLog("The user deals with Alert ok presence");
     }
     public void alertWaitOk(){
         elementHelper.clickElement(alertWaitButtonElement);
+        LoggerUtility.infoLog("The user clicks Alert Wait Element");
         //wait explicit pentru alerta
         alertHelper.acceptAlert();
+        LoggerUtility.infoLog("The user deals with Alert ok presence");
     }
 
     public void alertCancel(){
         elementHelper.clickElement(alertOkCancelElement);
+        LoggerUtility.infoLog("The user clicks on Alert OK element");
         alertHelper.dismissAlert();
+        LoggerUtility.infoLog("The user deals with Alert dismiss presence");
 
     }
 
     public void fillAlert(String value){
         elementHelper.clickElement(alertPromptElement);
+        LoggerUtility.infoLog("The user clicks on Alert Prompt element");
         alertHelper.sentAndAccpetAlert(value);
+        LoggerUtility.infoLog("The user fills and clicks ok with Alert prompt");
     }
 }

@@ -2,7 +2,6 @@ package pages;
 
 import helpermethods.ElementHelper;
 import helpermethods.PageHelper;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,69 +9,63 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.List;
 
-public class PracticeFormPage {
+public class PracticeFormPage extends BasePage {
 
-    public WebDriver driver;
-    public ElementHelper elementHelper;
-    public PageHelper pageHelper;
 
-    public PracticeFormPage(WebDriver driver){
-        this.driver = driver;
-        elementHelper = new ElementHelper(driver);
-        pageHelper = new PageHelper(driver);
-        PageFactory.initElements(driver,this);
-    }
 
     @FindBy(css = "input[placeholder='First Name']")
-    public WebElement firstNameElement;
+    private WebElement firstNameElement;
 
     @FindBy(css = "input[placeholder='Last Name']")
-    public WebElement lastNameElement;
+    private WebElement lastNameElement;
 
     @FindBy(css = "input[placeholder='name@example.com']")
-    public WebElement emailElement;
+    private WebElement emailElement;
 
     @FindBy(css = "input[placeholder='Mobile Number']")
-    public WebElement mobileElement;
+    private WebElement mobileElement;
 
     @FindBy(id = "subjectsInput")
-    public WebElement subjectsElement;
+    private WebElement subjectsElement;
 
     @FindBy(css = "div[id='genterWrapper']>div>div>label[class='custom-control-label']")
-    public List<WebElement> genderElementList;
+    private List<WebElement> genderElementList;
 
     @FindBy(css = "div[id='hobbiesWrapper']>div>div>label[class='custom-control-label']")
-    public List<WebElement> hobbiesElementList;
+    private List<WebElement> hobbiesElementList;
 
     @FindBy(id = "uploadPicture")
-    public WebElement uploadElement;
+    private WebElement uploadElement;
 
     @FindBy(id = "currentAddress")
-    public WebElement adressElement;
+    private WebElement adressElement;
 
     @FindBy(id = "state")
-    public WebElement stateElement;
+    private WebElement stateElement;
 
     @FindBy(id = "react-select-3-input")
-    public WebElement stateInputElement;
+    private WebElement stateInputElement;
 
     @FindBy(id = "city")
-    public WebElement cityElement;
+    private WebElement cityElement;
 
     @FindBy(id = "react-select-4-input")
-    public WebElement cityInputElement;
+    private WebElement cityInputElement;
 
     @FindBy(id = "submit")
-    public WebElement submitElement;
+    private WebElement submitElement;
 
     @FindBy ( xpath = "//table//td[1]")
-    public List<WebElement> tableDescriptionList;
+    private List<WebElement> tableDescriptionList;
 
     @FindBy ( xpath = "//table//td[2]")
-    public List<WebElement> tableValueList;
+    private List<WebElement> tableValueList;
+
+    public PracticeFormPage(WebDriver driver) {
+        super(driver);
+    }
 
 
     public void fillEntireForm(String firstNameValue, String lastNameValue, String emailValue,
