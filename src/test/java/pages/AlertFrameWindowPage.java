@@ -29,11 +29,13 @@ public class AlertFrameWindowPage extends BasePage {
     public void interactWithFramesSubMenu(){
         elementHelper.waitVisibleElement(framesElement);
         elementHelper.ultraJSElement(framesElement);
+        LoggerUtility.infoLog("The user clicks on Frame sub Menu");
     }
 
     public void interactWithWindowSubMenu(){
         elementHelper.waitVisibleElement(windowElement);
         elementHelper.ultraJSElement(windowElement);
+        LoggerUtility.infoLog("The user clicks on Window Menu");
     }
 
 

@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.logging.Logger;
+
 public class IndexPage {
     public WebDriver driver;
     public ElementHelper elementHelper;
@@ -37,10 +39,12 @@ public class IndexPage {
     public void interactWithElementsMenu(){
         pageHelper.scrollPage(0, 400);
         elementHelper.ultraJSElement(elementElmenet);
+        LoggerUtility.infoLog("The user clicks on Elements Menu");
     }
 
     public void interactWithFormsMenu(){
         pageHelper.scrollPage(0,400);
         elementHelper.clickElement(formMenuElement);
+        LoggerUtility.infoLog("The user click ons the FormsMenu");
     }
 }

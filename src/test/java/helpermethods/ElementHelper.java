@@ -27,10 +27,6 @@ public class ElementHelper {
         element.click();
     }
 
-   public WebElement getElementsXpath(String xpath){
-       return driver.findElement(By.xpath(xpath));
-   }
-
     public void extractText(WebElement textelement){
         System.out.println(textelement.getText());
     }
