@@ -26,7 +26,7 @@ public class FrameHelper {
 
     }
 
-    public void frameSwitchCss(String css){
+    public void frameSwitchCss(String css) {
         driver.switchTo().frame(driver.findElement(By.cssSelector(css)));
     }
 

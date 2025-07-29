@@ -1,12 +1,9 @@
 package pages;
 
-import helpermethods.ElementHelper;
-import helpermethods.TabHelper;
 import loggerUtility.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class WindowPage extends BasePage {
 
