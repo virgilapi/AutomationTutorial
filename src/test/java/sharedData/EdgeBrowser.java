@@ -24,6 +24,7 @@ public class EdgeBrowser implements Browser{
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
+        LoggerUtility.startTest(this.getClass().getSimpleName());
     }
 
     @Override

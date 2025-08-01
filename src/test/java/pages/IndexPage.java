@@ -1,26 +1,12 @@
 package pages;
 
-import helpermethods.ElementHelper;
-import helpermethods.PageHelper;
 import loggerUtility.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class IndexPage {
-    public WebDriver driver;
-    public ElementHelper elementHelper;
-    public PageHelper pageHelper;
+public class IndexPage extends BasePage {
 
-
-    public IndexPage(WebDriver driver){
-        this.driver = driver;
-        elementHelper = new ElementHelper(driver);
-        pageHelper = new PageHelper(driver);
-        PageFactory.initElements(driver,this);
-
-    }
 
     @FindBy(xpath = "//h5[text()='Alerts, Frame & Windows']")
     private WebElement alertsFrameWindowsElement;
@@ -28,6 +14,10 @@ public class IndexPage {
     private WebElement  elementElmenet;
     @FindBy(xpath = "//h5[text()='Forms']")
     private WebElement formMenuElement;
+
+    public IndexPage(WebDriver driver) {
+        super(driver);
+    }
 
     public void interactOnAlertsFrameWindowMenu(){
         elementHelper.ultraJSElement(alertsFrameWindowsElement);
