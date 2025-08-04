@@ -37,7 +37,7 @@ public class AlertPage extends BasePage{
     }
 
     public void alertCancel(){
-        elementHelper.clickElement(alertOkCancelElement);
+        elementHelper.ultraJSElement(alertOkCancelElement);
         LoggerUtility.infoLog("The user clicks on Alert OK element");
         alertHelper.dismissAlert();
         LoggerUtility.infoLog("The user deals with Alert dismiss presence");
@@ -45,7 +45,7 @@ public class AlertPage extends BasePage{
     }
 
     public void fillAlert(String value){
-        elementHelper.clickElement(alertPromptElement);
+        elementHelper.ultraJSElement(alertPromptElement);
         LoggerUtility.infoLog("The user clicks on Alert Prompt element");
         alertHelper.sentAndAccpetAlert(value);
         LoggerUtility.infoLog("The user fills and clicks ok with Alert prompt");
