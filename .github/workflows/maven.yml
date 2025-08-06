@@ -17,6 +17,9 @@ on:
         default: 2
         type: number
 
+schedule:
+  - cron: '0 8 * * *'
+
 jobs:
   build:
 
