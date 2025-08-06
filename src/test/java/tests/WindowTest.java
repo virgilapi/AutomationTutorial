@@ -5,11 +5,12 @@ import pages.AlertFrameWindowPage;
 import pages.IndexPage;
 import pages.WindowPage;
 import sharedData.SharedData;
+import suite.Suite;
 
 public class WindowTest extends SharedData {
 
 
-    @Test
+    @Test(groups = {Suite.REGRESSION_SUITE,Suite.SANITY_SUITE,Suite.ALERTWINDOWFRAME_SUITE})
     public void windowTestMethod(){
 
         IndexPage indexPage = new IndexPage(getDriver());

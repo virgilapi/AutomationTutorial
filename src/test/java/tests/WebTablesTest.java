@@ -5,10 +5,11 @@ import pages.ElementsPage;
 import pages.IndexPage;
 import pages.WebTablesPage;
 import sharedData.SharedData;
+import suite.Suite;
 
 public class WebTablesTest extends SharedData {
 
-    @Test
+    @Test(groups = {Suite.REGRESSION_SUITE,Suite.ELEMENT_SUITE})
     public void testMetod() {
 
 
